@@ -1,33 +1,49 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-     
-        <title>blog</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
+<?php
+class saikoroView{
+    public function index(){
+      $header = "<!DOCTYPE html>
+                <html>
+                  <head>
+                    <title>さいころゲーム</title>
+                  </head>
+                  <body>";
+      $body = "<form action='controller.php' method='post'>
+                  <input type='hidden' name='mode' value='result'>
+                  <input type='submit' value='さいころを振る！'>
+              </form>
+              
+      $footer .= "</body>
+                </html>";
+                  
+      $result = $header.$body.$footer;
+                  
+      return $result;
+    }
     
-    </head>
-    <body>
-       <h1>Blog Name</h1>
-       <p class='create'>[<a href='/posts/create'>create</a>]</p>
-       <div class='posts'>
-           @foreach ($posts as $post)
-              <div class='post'>
-                  <form action="/posts/{{ $post->id }}" id="form_{{ $post->id }}" method="post" style="display:inline">
-                       @csrf
-                       @method('DELETE')
-                       <button type="submit">delete</button>
-                  </form>
-                   <a href='/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
-                   <p class='body'>{{ $post->body }}</p>
-              </div> 
-            @endforeach
-       </div>
-       <div class='paginate'>
-           {{ $posts->links() }}
-       </div>
-    </body>
-</html>
+    public function result($saikoro){
+      $header = "<!DOCTYPE html>
+                <html>
+                  <head>
+                    <title>さいころゲーム</title>
+                  </head>
+                  <body>";
+                  
+      $body = "<h1>あなたが出した目は...</h1>";
+      
+      $body .= "<h2>".$saikoro."です！</h2>";
+                  
+      $body .= "<form action='controller.php' method='post'>
+                  <input type='hidden' name='mode' value='index'>
+                  <input type='submit' value='もう一回！'>
+              </form>";
+        
+        
+      $footer .= "</body>
+                </html>";
+                  
+      $result = $header.$body.$footer;
+      
+      return $result;
+    }
+}
+?>
