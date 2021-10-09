@@ -12,8 +12,7 @@
 */
 
 
-
-Route::get('/', 'PostController@index');
+Route::get('/', 'SaikoroController@index');
 Route::get('/posts/create', 'PostController@create');
 Route::get('/posts/{post}/edit', 'PostController@edit');
 Route::put('/posts/{post}', 'PostController@update');
