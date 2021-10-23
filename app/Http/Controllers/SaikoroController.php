@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Saikoro;
+use App\Saikoro2;
 
 class SaikoroController extends Controller
 {

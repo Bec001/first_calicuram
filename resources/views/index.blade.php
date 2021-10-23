@@ -10,7 +10,7 @@ class saikoroView{
       $body = "<form action='controller.php' method='post'>
                   <input type='hidden' name='mode' value='result'>
                   <input type='submit' value='さいころを振る！'>
-              </form>
+              </form>";
               
       $footer .= "</body>
                 </html>";
