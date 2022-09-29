@@ -12,8 +12,8 @@
 */
 
 
-Route::get('/', 'Janken3playController@index');
-Route::get('/battle', 'Janken3playController@battle');
+Route::get('/', 'SaikorogameController@index');
+Route::get('/battle', 'SaikorogameController@battle');
 // Route::get('/drow','jankenGamedrow');
 
 
